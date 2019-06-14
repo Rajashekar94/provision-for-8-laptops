@@ -1,0 +1,47 @@
+---
+
+- name: Update apt cache if MySQL is not yet installed.
+  apt: update_cache=yes
+
+- name: Install the MySQL packages
+  apt: name={{ item }} state=installed update_cache=yes
+  with_items:
+     - mysql-server-5.7
+     - mysql-client-5.7
+     - python-mysqldb
+     - libmysqlclient-dev
+
+- name: Start the MySQL service
+  action: service name=mysql state=started
+
+- name: Update MySQL root password for all root accounts
+  mysql_user: name=raja host={{ item }} password={{ mysql_root_pass }} state=present
+  with_items:
+     - "{{ ansible_hostname }}"
+     - 127.0.0.1
+     - ::1
+     - localhost
+
+#- name: Copy the root credentials as .my.cnf file
+ # template: src=root.cnf.j2 dest=~/.my.cnf mode=0600
+
+
+- name: Create a new database with name 'bobdata'
+  mysql_db:
+    name: "{{ db_name }}"
+    state: present
+
+#- name: Create database user with name 'bob' and password '12345' with all database privileges
+- mysql_user:
+    name: "{{ db_username }}"
+    password: "{{ db_password }}"
+    priv: '*.*:ALL,GRANT'
+    state: present
+
+#- name: Create database user with name 'bob' and password '12345' with all database privileges
+#  mysql_user:
+#    name: bob
+ #   password: 12345
+  #  priv: '*.*:ALL'
+  #  state: present
+
