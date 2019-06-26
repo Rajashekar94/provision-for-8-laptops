@@ -1,6 +1,0 @@
----
-#root_username: roo
-mysql_root_pass: mypassword
-#db_username: root
-#db_password: welcome
-db_name: firstdb
