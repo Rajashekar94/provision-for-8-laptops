@@ -2,4 +2,6 @@
 - hosts: local
   become: yes
   roles:
-    - mysql-role
+    - mysql-tuning
+
+     #- java_version.9 

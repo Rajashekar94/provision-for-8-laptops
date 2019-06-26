@@ -1,0 +1,9 @@
+---
+
+- name: Conditionally decide to load in variables
+  include_vars:
+    file: vars/mysql_conf.yml
+
+- template:
+    src: /home/ubuntu/mysql-tuning/templates/mysql_conf.j2
+    dest: /etc/mysql/mysql.conf.d/mysqld.cnf
