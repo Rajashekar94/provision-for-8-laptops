@@ -1,4 +1,4 @@
-mongodb_admin_user: netops
-mongodb_admin_password: welcome
-mongodb_user: raja
-mongodb_password: welcome
+#mongodb_admin_user: netops
+#mongodb_admin_password: welcome
+#mongodb_user: raja
+#mongodb_password: welcome
