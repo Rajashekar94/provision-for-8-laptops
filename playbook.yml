@@ -2,6 +2,6 @@
 - hosts: local
   become: yes
   roles:
-   # - mysql-role
+    #- mysql-role
      - mongodb-install
-     #- java_version.9 
+     #- java_version.1.7.0

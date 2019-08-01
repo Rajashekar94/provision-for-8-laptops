@@ -10,8 +10,5 @@
    name: mongodb-org
    state: latest
 
-- name: start the service
-  service:
-    name: mongodb
-    state: started 
-  
+- name: start mongodb
+  service: name=mongod state=started 

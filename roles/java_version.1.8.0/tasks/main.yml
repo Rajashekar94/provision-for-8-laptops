@@ -1,0 +1,22 @@
+---
+
+- name: Update APT package cache
+  action: apt update_cache=yes
+  
+- name: Download java_version 8
+  shell: curl -L -C - -b "oraclelicense=accept-securebackup-cookie" -O 'http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz'
+  args:
+   chdir: /home/ubuntu  
+
+- name: Extract jdk.tar.gz into /usr/bin
+  unarchive:
+    src: /home/ubuntu/jdk-8u131-linux-x64.tar.gz 
+    dest: /usr/bin
+
+- name: Set JAVA_HOME
+  lineinfile:
+    dest: /root/.bashrc
+    state: present
+    regexp: '^JAVA_HOME'
+    line: 'export PATH=$PATH:/usr/bin/jdk1.8.0_131/bin'
+
