@@ -8,16 +8,16 @@
      url: https://javapackage12.s3.ap-south-1.amazonaws.com/jdk-7u80-linux-x64.tar.gz
      dest: /home/ubuntu
 
-- name: Extract jdk.tar.gz into /usr/bin
+- name: Extract jdk.tar.gz into /data
   unarchive:
     src: /home/ubuntu/jdk-7u80-linux-x64.tar.gz
-    dest: /usr/bin
+    dest: /data
 - name: Set JAVA_HOME
   lineinfile:
     dest: /root/.bashrc
     state: present
     regexp: '^JAVA_HOME'
-    line: 'export PATH=$PATH:/usr/bin/jdk1.7.0_80/bin'
+    line: 'export PATH=$PATH:/data/jdk1.7.0_80/bin'
 
 
 

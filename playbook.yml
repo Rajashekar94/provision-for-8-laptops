@@ -1,7 +1,11 @@
 ---
-- hosts: local
+- hosts: server
   become: yes
   roles:
-    #- mysql-role
-     - mongodb-install
-     #- java_version.1.7.0
+    # - synchronize   
+   #- mysql-role
+     #- mongodb-install
+    # - java_version.1.8.0
+    #- java_version-8
+    #- nodejs-npm
+    - eclipse-ide
