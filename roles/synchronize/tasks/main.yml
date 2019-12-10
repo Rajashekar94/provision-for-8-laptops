@@ -1,0 +1,7 @@
+---
+- synchronize:
+   src: /home/ubuntu/Autoscaling
+   dest: /home/ubuntu/Auto
+   #mode: pull
+   #rsync_path: su -c rsync
+

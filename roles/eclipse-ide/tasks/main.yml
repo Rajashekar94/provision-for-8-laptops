@@ -1,0 +1,14 @@
+---
+- name: copy tar file to remote
+  copy:
+    src: /home/ubuntu/eclipse-java-2019-09-R-linux-gtk-x86_64.tar.gz
+    dest: /opt
+   # remote_src: yes 
+ 
+- name: Extract Eclipse.tar.gz into /opt
+  unarchive:
+    src: /opt/eclipse-java-2019-09-R-linux-gtk-x86_64.tar.gz
+    dest: /opt
+    remote_src: yes
+
+

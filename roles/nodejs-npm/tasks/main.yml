@@ -1,0 +1,14 @@
+---
+
+- name: Update APT package cache
+  action: apt update_cache=yes
+  
+- name: Install NODEJS and NPM
+  become: yes
+  apt: name={{item}} state=latest
+  with_items:
+    - nodejs
+    - npm
+    - git
+    - maven
+    - eclipse
